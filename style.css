@@ -9,12 +9,13 @@
 
 .navbar{
     display : flex;
-    padding : 15px 5%;
+    padding : 15px 4%;
     align-items : center;
     justify-content : space-between;
     position : fixed;
     width : 100%;
     background : white;
+    box-shadow : 0 1px 4px rgba(0, 0, 0, 0.2);
     z-index : 1000;
 }
 
@@ -48,6 +49,78 @@
 
 .login i{
     font-size : 20px;
+}
+
+.mobile-menu{
+    display : none;
+    position : relative;
+    width : 40px;
+    height : 40px;
+    justify-content : center;
+    align-items : center;
+}
+
+.mobile-menu input{
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 40px;
+    height : 40px;
+    cursor : pointer;
+    opacity : 0;
+}
+
+.mobile-menu i{
+    font-size : 40px;
+}
+
+.mobile-menu i:nth-child(2), .mobile-menu input:checked~i:nth-child(3){
+    display : block;
+}
+
+.mobile-menu i:nth-child(3), .mobile-menu input:checked~i:nth-child(2){
+    display : none;
+}
+
+.mobile-nav{
+    display : none;
+    position : absolute;
+    z-index : 11;
+    top : 80px;
+    right : 24px;
+    position : fixed;
+    text-align : center;
+    background : white;
+    overflow : hidden;
+    border-radius : 0 0 10px 10px;
+    list-style : none;
+    transition : transform .25s;
+    transform-origin : top center;
+    box-shadow : 1px 1px 4px rgba(0, 0, 0, 0.2);
+    transform : scaleY(0);
+}
+
+.mobile-nav li a{
+    display : inline-block;
+    width : 200px;
+    padding : 10px 0;
+    border-top : 1px solid rgba(0, 0, 0, 0.2);
+    text-decoration : none;
+    color : black;
+    font-weight : bold;
+}
+
+.mobile-nav li:nth-child(6) a{
+    color : #2F70FE;
+}
+
+.mobile-nav li:nth-child(7) i{
+    font-size : 20px;
+    margin-right : 8px;
+}
+
+.navbar:has(.mobile-menu input:checked) + .mobile-nav{
+    transform : scaleY(1);
 }
 
 .first{
@@ -102,7 +175,7 @@
 .first .second-img{
     position : absolute;
     right : 180px;
-    bottom : 30px;
+    bottom : 20px;
     width : 300px;
     height : auto;
     z-index : 3;
@@ -110,21 +183,24 @@
 
 svg{
     position : absolute;
-    bottom : -51px;
+    top : calc(100% - 46px);
     z-index : 2;
 }
 
 .second{
     background : #E5E5E5;
     width : 100%;
-    height : 100vh;
+    min-height : 100vh;
     position : relative;
+    display : flex;
+    justify-content : center;
+    align-items : center;
 }
 
 .second .frame1{
     position : absolute;
     left : 100px;
-    bottom : 100px;
+    bottom : 40px;
 }
 
 .second .frame2{
@@ -134,10 +210,6 @@ svg{
 }
 
 .second .sub{
-    position : absolute;
-    left : 50%;
-    transform : translateX(-50%);
-    margin-top : 150px;
     text-align : center;
 }
 
@@ -168,11 +240,11 @@ svg{
 
 .third, .fourth, .fifth, .sixth, .seventh{
     width : 100%;
-    height : 50vh;
+    min-height : 50vh;
     display : flex;
     justify-content : space-between;
     align-items : center;
-    padding : 0 15%;
+    padding : 0 12%;
     background : #00FF8514;
 }
 
@@ -261,19 +333,16 @@ svg{
     display : flex;
     flex-direction : column;
     width : 100%;
-    height : 50vh;
+    min-height : 50vh;
     background : black;
-    padding : 55px 5% 55px 15%;
+    padding : 55px 15%;
     color : white;
     justify-content : space-between;
 }
 
 .footer .top{
     display : flex;
-}
-
-.top .part{
-    flex : 1;
+    justify-content : space-between;
 }
 
 .top .part ul{
@@ -295,6 +364,274 @@ svg{
 .bottom{
     display : flex;
     font-size : 13px;
-    max-width : 830px;
     justify-content : space-between;
+    padding-right : 20%;
+}
+
+@media (max-width : 1205px){
+    .navbar{
+        padding : 15px 30px;
+    }
+    .nav{
+        gap : 25px;
+    }
+    .nav a:nth-last-child(1){
+        padding : 10px 15px;
+    }
+    .login{
+        padding-left : 35px;
+    }
+    .first .sub{
+        width : 520px;
+    }
+    .first .sub h1{
+        font-size : 35px;
+    }
+    .first .sub p{
+        font-size : 12px;
+    }
+    .first .sub button{
+        letter-spacing : 1px;
+        font-size : 12px;
+    }
+    .first .first-img{
+        width : 375px;
+        left : 85px;
+        bottom : -75px;
+    }
+    .first .second-img{
+        width : 260px;
+        right : 160px;
+        bottom : 20px;
+    }
+    .second .frame1{
+        left : 50px;
+        bottom : 50px;
+        width : 100px;
+    }
+    .second .frame2{
+        right : 50px;
+        top : 120px;
+        width : 100px;
+    }
+    .second .sub h1{
+        font-size : 35px;
+    }
+    .lsg{
+        gap : 60px;
+        margin-top : 70px;
+    }
+    .lsg .part{
+        width : 205px;
+    }
+    .lsg .part img{
+        width : 90px;
+    }
+    .lsg .part p{
+        font-size : 15px;
+    }
+    .third, .fourth, .fifth, .sixth, .seventh{
+        padding : 0 7%;
+    }
+    .footer{
+        padding : 55px 8%;
+    }
+    .footer .bottom{
+        padding-right : 21%;
+    }
+}
+
+@media (max-width : 1055px){
+    .navbar{
+        padding : 20px 25px;
+    }
+    .navbar .nav, .navbar .login{
+        display : none;
+    }
+    .navbar .mobile-menu{
+        display : flex;
+    }
+    .mobile-nav{
+        display : block;
+    }
+    .first .sub{
+        width : 480px;
+    }
+    .first .sub h1{
+        font-size : 30px;
+        letter-spacing : 1px;
+        line-height : 50px;
+    }
+    .first .sub p{
+        font-size : 11px;
+        line-height : 25px;
+    }
+    .first .first-img{
+        left : 50px;
+        width : 350px;
+    }
+    .first .second-img{
+        right : 90px;
+        bottom : 25px;
+        width : 240px;
+    }
+    .second .frame1{
+        width : 75px;
+        left : 40px;
+        bottom : 40px;
+    }
+    .second .frame2{
+        width : 75px;
+        right : 40px;
+        top : 110px;
+    }
+    .second .sub{
+        width : 100%;
+    }
+    .second .sub h1{
+        font-size : 30px;
+    }
+    .second .sub .lsg{
+        justify-content : center;
+        flex-wrap : wrap;
+        gap : 0;
+        margin-top : 40px;
+    }
+    .second .sub .lsg .part{
+        margin : 30px 60px;
+        width : 190px;
+    }
+    .second .sub .lsg .part img{
+        width : 75px;
+        margin-bottom : 20px;
+    }
+    .second .sub .lsg .part p{
+        font-size : 13px;
+    }
+}
+
+@media (max-width : 1000px){
+    .third img, .fifth img, .seventh img{
+        order : 1;
+    }
+    .third .text, .fifth .text, .seventh .text{
+        order : 2;
+    }
+    .third, .fourth, .fifth, .sixth, .seventh{
+        flex-direction : column;
+        align-items : flex-start;
+        padding : 50px 75px;
+    }
+    .third .text, .fourth .text, .fifth .text, .sixth .text, .seventh .text, .third .text h2, .fourth .text h2, .fifth .text h2, .sixth .text h2, .seventh .text h2{
+        width : 100%;
+    }
+    .third img, .fourth img, .fifth img, .sixth img, .seventh img{
+        max-width : 100%;
+    }
+    .third .text h2, .fourth .text h2, .fifth .text h2, .sixth .text h2, .seventh .text h2{
+        font-size : 22px;
+    }
+    .third .text p, .fourth .text p, .fifth .text p, .sixth .text p, .seventh .text p{
+        font-size : 14px;
+        margin : 15px 0;
+    }
+    .third .text a, .fourth .text a, .fifth .text a, .sixth .text a, .seventh .text a{
+        font-size : 18px;
+    }
+    .footer{
+        padding : 10px 40px 40px;
+    }
+    .footer .top{
+        flex-wrap : wrap;
+        justify-content : flex-start;
+    }
+    .footer .top .part{
+        margin-top : 30px;
+        width : calc(100% / 4);
+    }
+    .footer .bottom{
+        margin-top : 50px;
+    }
+}
+
+@media (max-width : 840px){
+    .footer .top .part{
+        width : calc(100% / 3);
+    }
+    .footer .bottom{
+        flex-direction : column;
+        padding-right : 0;
+        gap : 20px;
+    }
+}
+
+@media (max-width : 670px){
+    .footer .top .part{
+        width : calc(100% / 2);
+    }
+}
+
+@media (max-width : 460px){
+    .footer .top .part{
+        width : 100%;
+    }
+}
+
+@media (max-width : 947px){
+    .first .sub{
+        margin-top : 270px;
+    }
+    .first .first-img{
+        left : calc(50% + 10px);
+        transform : translateX(-50%);
+        bottom : -45px;
+        width : 300px;
+    }
+    .first .second-img{
+        left : 50%;
+        transform : translateX(-50%);
+        top : 105px;
+        width : 180px;
+    }
+    .second{
+        padding-top : 100px;
+    }
+    .second .frame1, .second .frame2{
+        width : 50px;
+    }
+    .second .sub .lsg{
+        margin-top : 30px;
+    }
+}
+
+@media (max-width : 637px){
+    .first .sub{
+        width : 100%;
+        padding : 0 20px;
+    }
+    .first .sub h1{
+        font-size : 25px;
+        line-height : 45px;
+    }
+    .first .sub p{
+        font-size : 9px;
+    }
+    .first .sub button{
+        font-size : 10px;
+    }
+    svg{
+        height : 45px;
+        top : calc(100% - 23px);
+    }
+    .second{
+        padding : 120px 0 70px;
+    }
+    .second .frame1{
+        left : 25px;
+        bottom : 25px;
+    }
+    .second .frame2{
+        right : 25px;
+        top : 60px;
+    }
 }
