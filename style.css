@@ -89,15 +89,15 @@
     top : 80px;
     right : 24px;
     position : fixed;
+    height : 0;
     text-align : center;
     background : white;
     overflow : hidden;
     border-radius : 0 0 10px 10px;
     list-style : none;
-    transition : transform .25s;
+    transition : height .25s;
     transform-origin : top center;
     box-shadow : 1px 1px 4px rgba(0, 0, 0, 0.2);
-    transform : scaleY(0);
 }
 
 .mobile-nav li a{
@@ -120,7 +120,7 @@
 }
 
 .navbar:has(.mobile-menu input:checked) + .mobile-nav{
-    transform : scaleY(1);
+    height : 314px;
 }
 
 .first{
