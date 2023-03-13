@@ -182,8 +182,9 @@
 }
 
 svg{
+    height : 90px;
     position : absolute;
-    top : calc(100% - 46px);
+    bottom : -44px;
     z-index : 2;
 }
 
@@ -611,13 +612,14 @@ svg{
     }
     .first .sub h1{
         font-size : 25px;
-        line-height : 45px;
+        line-height : 40px;
     }
     .first .sub p{
         font-size : 9px;
     }
     .first .sub button{
         font-size : 10px;
+        margin-top : 15px;
     }
     svg{
         height : 45px;
